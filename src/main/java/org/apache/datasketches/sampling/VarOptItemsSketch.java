@@ -822,7 +822,7 @@ public final class VarOptItemsSketch<T> {
     if (item == null) {
       return;
     }
-    if (weight <= 0.0) {
+    if (weight <= 0.0 || Double.isNaN(weight) || Double.isInfinite(weight)) {
       throw new SketchesArgumentException("Item weights must be strictly positive: "
               + weight + ", for item " + item.toString());
     }
